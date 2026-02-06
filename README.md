@@ -1,59 +1,47 @@
-# EmployeeManag
+# Employee Management App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
+Applikasi manajemen data karyawan yang dibuat dengan Angular 16.
+Aplikasi ini memiliki halaman seperti :
 
-## Development server
+- Halaman Login
+- Halaman List Karyawan
+- Halaman Detail Karyawan
+- Halaman Tambah Karyawan
 
-To start a local development server, run:
+## Fitur
+
+- Validasi form dengan Reactive Forms
+- Mencari data pegawai dengan username dan email
+- Membuat data pegawai baru
+- Arsitektur Modular
+- Tailwindcss
+
+## Teknologi yang Digunakan
+
+- [Angular 16](https://angular.io/)
+- [RxJS](https://rxjs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS] (https://www.tailwindcss.com/)
+
+## Cara Instalasi
+
+Ikuti petunjuk dibawah ini untuk menjalankan aplikasi secara lokal
 
 ```bash
+# 1. Clone the repository
+git clone https://github.com/mfurqaann/management-employee.git
+cd management-employee
+
+# 2. Install dependencies
+npm install
+
+# 3. Run the app
 ng serve
+
+# 4. Open the app in your browser
+http://localhost:4200
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Catatan
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Proyek ini dimaksudkan untuk menunjukkan pemahaman saya tentang dasar-dasar Angular dan kemampuan saya untuk menyusun dan mengelola aplikasi
