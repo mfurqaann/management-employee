@@ -1,6 +1,6 @@
 # Employee Management App
 
-Applikasi manajemen data karyawan yang dibuat dengan Angular 16.
+Applikasi manajemen data karyawan yang dibuat dengan Angular 20.
 Aplikasi ini memiliki halaman seperti :
 
 - Halaman Login
