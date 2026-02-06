@@ -13,15 +13,14 @@ Aplikasi ini memiliki halaman seperti :
 - Validasi form dengan Reactive Forms
 - Mencari data pegawai dengan username dan email
 - Membuat data pegawai baru
-- Arsitektur Modular
 - Tailwindcss
 
 ## Teknologi yang Digunakan
 
-- [Angular 16](https://angular.io/)
+- [Angular 20](https://angular.io/)
 - [RxJS](https://rxjs.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [TailwindCSS] (https://www.tailwindcss.com/)
+- [TailwindCSS](https://www.tailwindcss.com/)
 
 ## Cara Instalasi
 
