@@ -1,0 +1,66 @@
+<div class="min-h-screen bg-gray-100 py-10">
+  <div class="max-w-2xl mx-auto px-4">
+    <div class="bg-white border border-gray-300 rounded shadow-sm">
+      
+      <div class="bg-green-600 h-20"></div>
+
+      <div class="px-6 pb-6 -mt-10">
+        <div class="w-20 h-20 bg-green-600 border border-gray-300 flex items-center justify-center text-2xl font-semibold text-white mb-3">
+          {{ employee?.firstName?.[0] }}{{ employee?.lastName?.[0] }}
+        </div>
+        
+        <h1 class="text-xl font-semibold text-gray-800">
+          {{ employee?.firstName }} {{ employee?.lastName }}
+        </h1>
+        <p class="text-gray-500 text-sm">
+          {{ employee?.username }}
+        </p>
+
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-3 text-sm">
+            <div>
+              <label class="block text-gray-500">Email</label>
+              <p>{{ employee?.email }}</p>
+            </div>
+            <div>
+              <label class="block text-gray-500">Birth Date</label>
+              <p>{{ formatDate(employee?.birthDate) }}</p>
+            </div>
+            <div>
+              <label class="block text-gray-500">Status</label>
+              <p>{{ employee?.status }}</p>
+            </div>
+          </div>
+
+          <div class="space-y-3 text-sm">
+            <div>
+              <label class="block text-gray-500">Group</label>
+              <p>{{ employee?.group }}</p>
+            </div>
+            <div>
+              <label class="block text-gray-500">Basic Salary</label>
+              <p class="font-semibold">
+                {{ formatCurrency(employee?.basicSalary || 0) }}
+              </p>
+            </div>
+            <div>
+              <label class="block text-gray-500">Entry Timestamp</label>
+              <p class="text-gray-400">
+                {{ formatDateTime(employee?.description) }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 text-right">
+          <button
+            (click)="goBack()"
+            class="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+            OK
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

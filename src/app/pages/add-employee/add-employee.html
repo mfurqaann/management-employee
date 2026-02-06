@@ -1,0 +1,141 @@
+<div class="min-h-screen bg-slate-50 pb-12">
+  <header class="bg-white border-b p-4">
+    <div class="max-w-3xl mx-auto flex items-center justify-between">
+      <h1 class="text-xl font-bold">Add New Employee</h1>
+      <a routerLink="/employees" class="text-slate-500 hover:text-slate-800">Cancel</a>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto mt-8 px-4">
+    <form
+      [formGroup]="employeeForm"
+      (ngSubmit)="onSubmit()"
+      class="bg-white p-8 rounded-xl shadow-sm border space-y-6"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label class="text-sm font-bold text-slate-700">Username *</label>
+          <input
+            formControlName="username"
+            type="text"
+            class="w-full mt-1 px-4 py-2 border rounded-lg outline-none focus:ring-1 ring-blue-500"
+          />
+        </div>
+        <div>
+          <label class="text-sm font-bold text-slate-700">Email *</label>
+          <input
+            formControlName="email"
+            type="email"
+            class="w-full mt-1 px-4 py-2 border rounded-lg outline-none focus:ring-1 ring-blue-500"
+          />
+          @if (employeeForm.get('email')?.touched && employeeForm.get('email')?.invalid) {
+            <div
+            class="text-xs text-red-500 mt-1"
+          >
+            Invalid email format
+          </div>
+          }
+          
+        </div>
+        <div>
+          <label class="text-sm font-bold text-slate-700">First Name *</label>
+          <input
+            formControlName="firstName"
+            type="text"
+            class="w-full mt-1 px-4 py-2 border rounded-lg"
+          />
+        </div>
+        <div>
+          <label class="text-sm font-bold text-slate-700">Last Name *</label>
+          <input
+            formControlName="lastName"
+            type="text"
+            class="w-full mt-1 px-4 py-2 border rounded-lg"
+          />
+        </div>
+        <div>
+          <label class="text-sm font-bold text-slate-700">Birth Date *</label>
+          <input
+            formControlName="birthDate"
+            type="date"
+            [max]="today"
+            class="w-full mt-1 px-4 py-2 border rounded-lg"
+          />
+        </div>
+        <div>
+          <label class="text-sm font-bold text-slate-700">Basic Salary *</label>
+          <input
+            formControlName="basicSalary"
+            type="number"
+            class="w-full mt-1 px-4 py-2 border rounded-lg"
+          />
+        </div>
+        <div>
+          <label class="text-sm font-bold text-slate-700">Status *</label>
+          <select formControlName="status" class="w-full mt-1 px-4 py-2 border rounded-lg bg-white">
+            <option value="">Select Status</option>
+            @for (status of statuses; track status) {
+              <option [value]="status">{{ status }}</option>
+            }
+          </select>
+        </div>
+        <div class="relative">
+          <label class="text-sm font-bold text-slate-700">Group *</label>
+          <div
+            (click)="showGroupDropdown = !showGroupDropdown"
+            class="w-full mt-1 px-4 py-2 border rounded-lg bg-white cursor-pointer flex justify-between"
+          >
+            <span>{{ employeeForm.get('group')?.value || 'Select Group' }}</span>
+            <span class="text-slate-400">▼</span>
+          </div>
+          @if (showGroupDropdown) {
+            <div
+            class="absolute z-10 w-full mt-2 bg-white border rounded-lg shadow-xl p-2"
+          >
+            <input
+              type="text"
+              [(ngModel)]="groupSearch"
+              [ngModelOptions]="{ standalone: true }"
+              placeholder="Search groups..."
+              class="w-full p-2 border rounded mb-2 text-sm"
+            />
+            <div class="max-h-40 overflow-y-auto">
+              @for (filter of filteredGroups; track filter) {
+                <div
+                  (click)="selectGroup(filter)"
+                  class="p-2 hover:bg-blue-50 cursor-pointer text-sm rounded"
+                >
+                  {{ filter }}
+                </div>
+              }
+            </div>
+          </div>
+          }
+          
+        </div>
+      </div>
+
+      <div>
+        <label class="text-sm font-bold text-slate-700">Description (Entry Date) *</label>
+        <input
+          formControlName="description"
+          type="datetime-local"
+          class="w-full mt-1 px-4 py-2 border rounded-lg"
+        />
+      </div>
+
+      <div class="flex gap-4 justify-end pt-4">
+        <a routerLink="/employees" class="px-6 py-2 border rounded-lg font-bold text-slate-500"
+          >Cancel</a
+        >
+        <button
+          type="submit"
+          [disabled]="employeeForm.invalid"
+          class="px-6 py-2 bg-green-600 text-white rounded-lg font-bold disabled:opacity-50"
+        >
+          Save Employee
+        </button>
+      </div>
+    </form>
+  </main>
+</div>

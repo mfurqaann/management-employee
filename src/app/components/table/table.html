@@ -1,0 +1,73 @@
+<table class="w-full text-left">
+  <thead
+    class="bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-500 uppercase"
+  >
+    <tr>
+      <th class="px-6 py-4 cursor-pointer" (click)="onSort('username')">
+        Username
+      </th>
+      <th class="px-6 py-4 cursor-pointer" (click)="onSort('firstName')">
+        Full Name
+      </th>
+      <th class="px-6 py-4">Email</th>
+      <th class="px-6 py-4">Group</th>
+      <th class="px-6 py-4 cursor-pointer" (click)="onSort('basicSalary')">
+        Salary
+      </th>
+      <th class="px-6 py-4">Action</th>
+    </tr>
+  </thead>
+
+  <tbody class="divide-y divide-slate-100 text-sm">
+    @for (employee of paginatedEmployees; track employee.username) {
+      <tr class="hover:bg-slate-50 transition-colors">
+        <td class="px-6 py-4 font-medium">
+          {{ employee.username }}
+        </td>
+
+        <td class="px-6 py-4">
+          {{ employee.firstName }} {{ employee.lastName }}
+        </td>
+
+        <td class="px-6 py-4 text-slate-500">
+          {{ employee.email }}
+        </td>
+
+        <td class="px-6 py-4">
+          <span
+            class="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs"
+          >
+            {{ employee.group }}
+          </span>
+        </td>
+
+        <td class="px-6 py-4 font-bold">
+          {{ formatCurrency(employee.basicSalary) }}
+        </td>
+
+        <td class="px-6 py-4 space-x-2">
+          <a
+            [routerLink]="['/employee-detail', employee.username]"
+            class="text-blue-600 hover:underline"
+          >
+            View
+          </a>
+
+          <button
+            (click)="onEdit(employee.username)"
+            class="text-yellow-600 hover:underline"
+          >
+            Edit
+          </button>
+
+          <button
+            (click)="onDelete(employee.username)"
+            class="text-red-600 hover:underline"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
